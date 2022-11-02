@@ -39,7 +39,7 @@ O1TestForChaos.test_for_chaos(observables=phi_chaos,n_angles=10,display=True)
 ```python
 from typing import List
 
-from matplotlib.pyplot import imshow, show 
+from matplotlib.pyplot import imshow, show, xlabel, ylabel 
 from eca import OneDimensionalElementaryCellularAutomata
 
 def observables(max_time:int, dimension:int, eca_rule:int, display:bool=False) -> List[float]:
