@@ -13,7 +13,7 @@ phi_chaos = observables(max_time=1000,dimension=300,eca_rule=30,display=True)
 O1TestForChaos.test_for_chaos(observables=phi_regular,n_angles=10,display=True)
 ```
 
-<img src="https://github.com/mohammedterryjack/0-1Test/blob/636398527aec8baa238c3ffed33b57d3ba0e7bf4/images/k_regular.png" width=15% height=15%>
+<img src="https://github.com/mohammedterryjack/0-1Test/blob/636398527aec8baa238c3ffed33b57d3ba0e7bf4/images/k_regular.png" width=25% height=25%>
 
 > -0.04076938313921742
 
@@ -21,7 +21,7 @@ O1TestForChaos.test_for_chaos(observables=phi_regular,n_angles=10,display=True)
 O1TestForChaos.test_for_chaos(observables=phi_edge,n_angles=10,display=True)
 ```
 
-<img src="https://github.com/mohammedterryjack/0-1Test/blob/636398527aec8baa238c3ffed33b57d3ba0e7bf4/images/k_edge.png" width=15% height=15%>
+<img src="https://github.com/mohammedterryjack/0-1Test/blob/636398527aec8baa238c3ffed33b57d3ba0e7bf4/images/k_edge.png" width=25% height=25%>
 
 > 0.3407182394463175
 
@@ -29,7 +29,7 @@ O1TestForChaos.test_for_chaos(observables=phi_edge,n_angles=10,display=True)
 O1TestForChaos.test_for_chaos(observables=phi_chaos,n_angles=10,display=True)
 ```
 
-<img src="https://github.com/mohammedterryjack/0-1Test/blob/636398527aec8baa238c3ffed33b57d3ba0e7bf4/images/k_chaos.png" width=15% height=15%>
+<img src="https://github.com/mohammedterryjack/0-1Test/blob/636398527aec8baa238c3ffed33b57d3ba0e7bf4/images/k_chaos.png" width=25% height=25%>
 
 > 0.8591552135412148
 
