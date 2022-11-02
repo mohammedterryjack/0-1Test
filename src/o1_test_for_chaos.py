@@ -54,7 +54,7 @@ class O1TestForChaos:
         log_N = list(map(log,range(1,N)))
         slope, intercept, K, _, _ = linregress(log_N, log_M)
         if display:
-            best_fit = list(map(lambda value:slope*value+intercept, log_M))
+            best_fit = list(map(lambda value:slope*value+intercept, log_N))
             plot(log_N,log_M)
             plot(log_N, best_fit)
             xlabel("log N")
