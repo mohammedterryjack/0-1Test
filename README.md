@@ -47,7 +47,9 @@ def observables(max_time:int, dimension:int, eca_rule:int, display:bool=False) -
     for _ in range(max_time):
         ca.transition(rule_number=eca_rule)
     if display:
-        imshow(ca.evolution())
+        imshow(ca.evolution(),cmap='gray')
+        xlabel('dimension')
+        ylabel('time')
         show()
     trajectory_grays_encoded,_ = zip(*ca.trajectory())
     max_value = 2**dimension
