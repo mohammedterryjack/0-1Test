@@ -3,9 +3,9 @@ The 0-1 Test for Chaos
 
 ### Example using 1D ECAs
 ```python
-phi_regular = observables(max_time=1000,dimension=300,eca_rule=1,display=True)
-phi_edge = observables(max_time=1000,dimension=300,eca_rule=110,display=True)
-phi_chaos = observables(max_time=1000,dimension=300,eca_rule=30,display=True)
+phi_regular = observables(max_time=5000,dimension=300,eca_rule=1,display=True)
+phi_edge = observables(max_time=5000,dimension=300,eca_rule=110,display=True)
+phi_chaos = observables(max_time=5000,dimension=300,eca_rule=30,display=True)
 ```
 <img src="https://github.com/mohammedterryjack/0-1Test/blob/636398527aec8baa238c3ffed33b57d3ba0e7bf4/images/dynamics.png" width=30% height=30%>
 
