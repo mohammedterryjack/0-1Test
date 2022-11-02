@@ -2,6 +2,12 @@
 The 0-1 Test for Chaos
 
 ### Example using 1D ECAs
+```python
+phi_regular = observables(max_time=1000,dimension=300,eca_rule=1,display=True)
+phi_edge = observables(max_time=1000,dimension=300,eca_rule=110,display=True)
+phi_chaos = observables(max_time=1000,dimension=300,eca_rule=30,display=True)
+```
+![](images/dynamics.png)
 
 ```python
 O1TestForChaos.test_for_chaos(observables=phi_regular,n_angles=10,display=True)
@@ -44,18 +50,3 @@ def observables(max_time:int, dimension:int, eca_rule:int, display:bool=False) -
         trajectory_grays_encoded
     ))
 ```
-
-```python
-phi_regular = observables(max_time=1000,dimension=300,eca_rule=1,display=True)
-```
-![](images/regular.png)
-
-```python
-phi_edge = observables(max_time=1000,dimension=300,eca_rule=110,display=True)
-```
-![](images/edge.png)
-
-```python
-phi_chaos = observables(max_time=1000,dimension=300,eca_rule=30,display=True)
-```
-![](images/chaos.png)
