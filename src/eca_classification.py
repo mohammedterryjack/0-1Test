@@ -36,5 +36,5 @@ if __name__ == "__main__":
         n_iterations=318,
         initial_condition=157772325949337114751228396077633682068852574612949832419054851897545068335997284508864138640431125523412626177597802569043207131753005708372421948440114274698313298513533339618679949586869846
     )
-    with open("classification.json","w") as results_file:
+    with open("results/classification.json","w") as results_file:
         results_file.write(dumps(results,indent=2))
