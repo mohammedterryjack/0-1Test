@@ -50,7 +50,7 @@ class O1TestForChaos:
 
     @staticmethod
     def correlation_coefficient(mean_square_displacement:List[float], N:int, display:bool=False) -> float:
-        log_M = list(map(log,mean_square_displacement))
+        log_M = list(map(lambda M_n:log(M_n) if M_n else 0.0,mean_square_displacement))
         log_N = list(map(log,range(1,N)))
         slope, intercept, K, _, _ = linregress(log_N, log_M)
         if display:
