@@ -2,7 +2,6 @@
 The 0-1 Test for Chaos
 
 ### Example using 1D ECAs
-```pip install eca```
 
 ```python
 from o1_test_for_chaos import O1TestForChaos
