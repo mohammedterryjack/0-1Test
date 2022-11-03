@@ -8,7 +8,7 @@ phi_edge = observables(max_time=5000,dimension=300,eca_rule=110,display=True)
 phi_chaos = observables(max_time=5000,dimension=300,eca_rule=30,display=True)
 ```
 <img src="https://github.com/mohammedterryjack/0-1Test/blob/ea60778ba171a6e989d0cc9b3bd9eea0e603e24b/images/trajectories.png" width=30% height=30%>
-<img src="https://github.com/mohammedterryjack/0-1Test/blob/7a526e5a8e385774bdcbd090220d0a9ec6ada6e5/images/observables.png" width=30% height=30%>
+<img src="https://github.com/mohammedterryjack/0-1Test/blob/7a526e5a8e385774bdcbd090220d0a9ec6ada6e5/images/observables.png" width=20% height=20%>
 
 ```python
 O1TestForChaos.test_for_chaos(observables=phi_regular,n_angles=10,display=True)
