@@ -5,8 +5,8 @@ The 0-1 Test for Chaos
 ```pip install eca```
 
 ```python
-from utils import observables
 from o1_test_for_chaos import O1TestForChaos
+from utils import observables
 
 phi_regular = observables(max_time=5000,dimension=300,eca_rule=1,display=True)
 phi_edge = observables(max_time=5000,dimension=300,eca_rule=110,display=True)
