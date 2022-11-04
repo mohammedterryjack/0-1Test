@@ -6,7 +6,7 @@ def classify_eca_rules(
     n_angles:int, lattice_width:int,
     n_iterations:int, initial_condition:int, 
     ignore_initial_transient:int   
-) -> Generator[Tuple[int,float],None,None]:
+) -> Generator[Tuple[int,Tuple[float,float]],None,None]:
     for rule in equivalent_eca_rules():
         yield (
             rule, 
