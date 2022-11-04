@@ -1,5 +1,6 @@
 from typing import Generator, Tuple
 from src.utils import observables, equivalent_eca_rules
+from src.o1_test_for_chaos import O1TestForChaos
 
 def classify_eca_rules(
     n_angles:int, rules:List[int], lattice_width:int,
