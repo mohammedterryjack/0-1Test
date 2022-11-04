@@ -1,19 +1,24 @@
 from typing import Generator, Tuple
-
 from src.utils import observables, equivalent_eca_rules
-
 
 def classify_eca_rules(
     n_angles:int, rules:List[int], lattice_width:int,
     n_iterations:int, initial_condition:int, ignore_initial_transient:int   
 ) -> Generator[Tuple[int,float],None,None]:
     for rule in rules:
-        phi = observables(max_time=n_iterations,eca_rule=rule,dimension=lattice_width, ic=initial_condition)
-        K = O1TestForChaos.test_for_chaos(observables=phi[ignore_initial_transient:],n_angles=n_angles)
-        yield (rule, K)
+        yield (
+            rule, 
+            O1TestForChaos.test_for_chaos(
+                n_angles=n_angles,
+                observables=observables(
+                    max_time=n_iterations,
+                    eca_rule=rule,
+                    dimension=lattice_width, 
+                    ic=initial_condition
+                )[ignore_initial_transient:]
+            )
+        )
 
-
-        
 if __name__ == "__main__":
     results = dict(classify_eca_rules(
         n_angles=10,
