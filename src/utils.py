@@ -4,7 +4,10 @@ from csv import DictReader
 from matplotlib.pyplot import imshow, plot, show, xlabel, ylabel
 from eca import OneDimensionalElementaryCellularAutomata
 
-def observables(max_time:int, dimension:int, eca_rule:int, ic:Optional[str]=None, display:bool=False) -> List[float]:
+def observables(
+    max_time:int, dimension:int, eca_rule:int, 
+    ic:Optional[str]=None, display:bool=False
+) -> List[float]:
     max_value = 2**dimension
     ca = OneDimensionalElementaryCellularAutomata(lattice_width=dimension,initial_configuration=ic)
     for _ in range(max_time):
