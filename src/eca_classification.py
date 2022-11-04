@@ -1,4 +1,4 @@
-from typing import Generator, Dict, List
+from typing import Dict, List
 from json import dumps 
 
 from src.utils import observables, equivalent_eca_rules
@@ -8,23 +8,26 @@ def classify_eca_rules(
     n_angles:int, rules:List[int], lattice_width:int,
     n_iterations:int, initial_condition:int    
 ) -> Dict[int,float]:
-    measurements = _chaos_test_on_eca_rules(
-        n_angles=n_angles,
-        rules=rules,
-        lattice_width=lattice_width,
-        n_iterations=n_iterations,
-        initial_condition=initial_condition
-    )
-    return dict(zip(rules,measurements))
+    return dict(map(
+        lambda rule:(
+            rule,
+            chaos_test(
+                n_angles=n_angles,
+                rule=rule,
+                lattice_width=lattice_width,
+                n_iterations=n_iterations,
+                initial_condition=initial_condition
+            )
+        ),
+        rules
+    ))
 
-def _chaos_test_on_eca_rules(
-    n_angles:int, rules:List[int], lattice_width:int,
+def chaos_test(
+    n_angles:int, rule:int, lattice_width:int,
     n_iterations:int, initial_condition:int
-) -> Generator[float,None,None]:
-    for rule in rules:
-        phi = observables(max_time=n_iterations,eca_rule=rule,dimension=lattice_width, ic=initial_condition)
-        yield O1TestForChaos.test_for_chaos(observables=phi,n_angles=n_angles)
-        
+) -> float:
+    phi = observables(max_time=n_iterations,eca_rule=rule,dimension=lattice_width, ic=initial_condition)
+    return O1TestForChaos.test_for_chaos(observables=phi,n_angles=n_angles)
         
         
         
