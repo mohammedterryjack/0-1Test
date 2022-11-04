@@ -20,7 +20,7 @@ def classify_eca_rules(
         )
 
 if __name__ == "__main__":
-    results = dict(classify_eca_rules(
+    results = list(classify_eca_rules(
         n_angles=10,
         rules=list(equivalent_eca_rules()),
         lattice_width=637,
