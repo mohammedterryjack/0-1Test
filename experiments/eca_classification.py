@@ -3,10 +3,11 @@ from experiments.utils import observables, equivalent_eca_rules
 from src.o1_test_for_chaos import O1TestForChaos
 
 def classify_eca_rules(
-    n_angles:int, rules:List[int], lattice_width:int,
-    n_iterations:int, initial_condition:int, ignore_initial_transient:int   
+    n_angles:int, lattice_width:int,
+    n_iterations:int, initial_condition:int, 
+    ignore_initial_transient:int   
 ) -> Generator[Tuple[int,float],None,None]:
-    for rule in rules:
+    for rule in equivalent_eca_rules():
         yield (
             rule, 
             O1TestForChaos.test_for_chaos(
@@ -23,7 +24,6 @@ def classify_eca_rules(
 if __name__ == "__main__":
     results = list(classify_eca_rules(
         n_angles=10,
-        rules=list(equivalent_eca_rules()),
         lattice_width=637,
         n_iterations=1000,
         ignore_initial_transient=10,
