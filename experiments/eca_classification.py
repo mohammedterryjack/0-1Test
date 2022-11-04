@@ -13,7 +13,7 @@ def classify_eca_rules(
             O1TestForChaos.test_for_chaos(
                 n_angles=n_angles,
                 observables=observables(
-                    max_time=n_iterations,
+                    max_time=n_iterations+ignore_initial_transient,
                     eca_rule=rule,
                     dimension=lattice_width, 
                     ic=initial_condition
