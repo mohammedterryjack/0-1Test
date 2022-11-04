@@ -1,7 +1,7 @@
 from typing import List,Generator,Tuple
 from math import e,pi,log
 from scipy.stats import linregress
-from statistics import median
+from statistics import median, stdev
 
 from numpy import cumsum
 from matplotlib.pyplot import imshow, plot, show, xlabel,ylabel
@@ -81,4 +81,4 @@ class O1TestForChaos:
             xlabel("angle")
             ylabel("K")
             show()
-        return median(Ks),max(Ks)-min(Ks)
+        return median(Ks),stdev(Ks)
