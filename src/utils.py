@@ -1,4 +1,5 @@
-from typing import List,Optional
+from typing import List,Optional,Generator
+from csv import DictReader
 
 from matplotlib.pyplot import imshow, plot, show, xlabel, ylabel
 from eca import OneDimensionalElementaryCellularAutomata
@@ -27,3 +28,9 @@ def observables(max_time:int, dimension:int, eca_rule:int, ic:Optional[str]=None
         ylabel('observable_t+1')
         show()
     return x_normalised
+
+
+def equivalent_eca_rules() -> Generator[int,None,None]:
+    with open('results/wolframs_classification.csv') as csvfile:
+        for row in DictReader(csvfile):
+            yield int(row['rule'])
