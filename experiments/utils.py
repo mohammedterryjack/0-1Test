@@ -34,6 +34,6 @@ def observables(
 
 
 def equivalent_eca_rules() -> Generator[int,None,None]:
-    with open('results/wolframs_classification.csv') as csvfile:
+    with open('experiments/results/wolfram.csv') as csvfile:
         for row in DictReader(csvfile):
             yield int(row['rule'])
