@@ -76,7 +76,7 @@ class O1TestForChaos:
     def test_for_chaos(observables:List[float],n_angles:int,display:bool=False) -> Tuple[float,float]:
         Ks = sorted(O1TestForChaos._test_for_chaos(observables=observables,n_angles=n_angles,display=display))
         if display:
-            angles = list(map(lambda n:2*n/pi,  range(1,len(Ks)+1)))
+            angles = list(map(lambda n:2*pi/n,  range(1,len(Ks)+1)))
             plot(angles,Ks)
             xlabel("angle")
             ylabel("K")
