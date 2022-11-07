@@ -1,4 +1,4 @@
-from typing import List,Generator,Tuple
+from typing import List,Generator
 from math import e,pi,log
 from scipy.stats import linregress
 from statistics import median, stdev
@@ -73,7 +73,7 @@ class O1TestForChaos:
             yield K
 
     @staticmethod
-    def test_for_chaos(observables:List[float],n_angles:int,display:bool=False) -> Tuple[float,float]:
+    def test_for_chaos(observables:List[float],n_angles:int,display:bool=False) -> float:
         Ks = sorted(O1TestForChaos._test_for_chaos(observables=observables,n_angles=n_angles,display=display))
         if display:
             angles = list(map(lambda n:2*pi/n,  range(1,len(Ks)+1)))
@@ -81,4 +81,4 @@ class O1TestForChaos:
             xlabel("angle")
             ylabel("K")
             show()
-        return median(Ks),stdev(Ks)
+        return median(Ks)
