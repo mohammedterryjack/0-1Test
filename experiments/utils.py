@@ -26,7 +26,7 @@ def observables(
         xlabel('dimension')
         ylabel('time')
         show()
-        plot(x_normalised,y_normalised)
+        plot(x_normalised,y_normalised,c='orange')
         xlabel('observable_t')
         ylabel('observable_t+1')
         show()
