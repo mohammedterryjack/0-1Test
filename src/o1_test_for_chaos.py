@@ -1,4 +1,4 @@
-from typing import List,Generator
+from typing import List,Generator,Optional
 from math import e,pi,log
 from scipy.stats import linregress
 from statistics import median, stdev
@@ -63,9 +63,7 @@ class O1TestForChaos:
         return K
 
     @staticmethod
-    def _test_for_chaos(observables:List[float],n_angles:int,display:bool) -> Generator[float,None,None]:
-        T = len(observables)
-        N = T//10
+    def _test_for_chaos(observables:List[float],n_angles:int,N:int,display:bool) -> Generator[float,None,None]:
         for n in range(1,n_angles+1):
             z = O1TestForChaos.transform(observables=observables, angle=2*pi/n,display=display and n==n_angles)
             M = O1TestForChaos.mean_square_displacement(transformed_data=z, N=N,display=display and n==n_angles) 
@@ -73,8 +71,13 @@ class O1TestForChaos:
             yield K
 
     @staticmethod
-    def test_for_chaos(observables:List[float],n_angles:int,display:bool=False) -> float:
-        Ks = sorted(O1TestForChaos._test_for_chaos(observables=observables,n_angles=n_angles,display=display))
+    def test_for_chaos(observables:List[float],n_angles:int,N:Optional[int]=None,display:bool=False) -> float:
+        Ks = sorted(O1TestForChaos._test_for_chaos(
+            observables=observables,
+            n_angles=n_angles,
+            N=len(observables)//10 if N is None else N,
+            display=display
+        ))
         if display:
             angles = list(map(lambda n:2*pi/n,  range(1,len(Ks)+1)))
             plot(angles,Ks)
