@@ -75,7 +75,7 @@ class O1TestForChaos:
         Ks = sorted(O1TestForChaos._test_for_chaos(
             observables=observables,
             n_angles=n_angles,
-            N=len(observables)//10 if N is None else N,
+            N=len(observables)//4 if N is None else N,
             display=display
         ))
         if display:
