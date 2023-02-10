@@ -1,15 +1,16 @@
 from typing import Generator, Tuple
-from experiments.utils import observables, equivalent_eca_rules
+from experiments.utils import observables, equivalent_eca_rules, parallel_map
 from src.o1_test_for_chaos import O1TestForChaos
+
 
 def classify_eca_rules(
     n_angles:int, lattice_width:int,
     n_iterations:int, initial_condition:int, 
     ignore_initial_transient:int   
 ) -> Generator[Tuple[int,float],None,None]:
-    for rule in equivalent_eca_rules():
-        yield (
-            rule, 
+    return parallel_map(
+        lambda rule: (
+            rule,
             O1TestForChaos.test_for_chaos(
                 n_angles=n_angles,
                 observables=observables(
@@ -19,4 +20,6 @@ def classify_eca_rules(
                     ic=initial_condition
                 )[ignore_initial_transient:]
             )
-        )
+        ),
+        equivalent_eca_rules()
+    )
