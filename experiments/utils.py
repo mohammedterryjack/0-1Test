@@ -1,4 +1,5 @@
-from typing import List,Optional,Generator
+from typing import List,Optional,Generator, Any, Iterable
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from csv import DictReader
 
 from matplotlib.pyplot import imshow, plot, show, xlabel, ylabel
@@ -37,3 +38,11 @@ def equivalent_eca_rules() -> Generator[int,None,None]:
     with open('experiments/results/wolfram.csv') as csvfile:
         for row in DictReader(csvfile):
             yield int(row['rule'])
+
+def parallel_map(process: callable, iterable: Iterable) -> Generator[Any, None, None]:
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        results = []
+        for item in iterable:
+            results.append(executor.submit(process, item))
+        for completed_result in as_completed(results):
+            yield completed_result.result()
