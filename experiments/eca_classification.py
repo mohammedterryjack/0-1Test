@@ -8,6 +8,7 @@ def classify_eca_rule(
     n_iterations:int, initial_condition:int, 
     ignore_initial_transient:int   
 ) -> Tuple[int,float]:
+    print(f"rule:{rule} = ...calculating")
     result = O1TestForChaos.test_for_chaos(
         n_angles=n_angles,
         observables=observables(
