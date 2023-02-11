@@ -3,8 +3,7 @@ from experiments.utils import observables
 from src.o1_test_for_chaos import O1TestForChaos
 
 def classify_eca_rule(
-    rule:int,
-    n_angles:int, lattice_width:int,
+    rule:int, n_angles:int, lattice_width:int,
     n_iterations:int, initial_condition:int, 
     ignore_initial_transient:int   
 ) -> Tuple[int,float]:
