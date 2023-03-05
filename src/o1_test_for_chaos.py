@@ -1,10 +1,10 @@
 from typing import List,Generator,Optional
 from math import e,pi,log
 from scipy.stats import linregress
-from statistics import median, stdev
+from statistics import median
 
 from numpy import cumsum
-from matplotlib.pyplot import imshow, plot, show, xlabel,ylabel
+from matplotlib.pyplot import plot, show, xlabel,ylabel
 
 class O1TestForChaos:
     @staticmethod
