@@ -72,7 +72,7 @@ class O1TestForChaos:
 
     @staticmethod
     def test_for_chaos(observables:List[float],n_angles:int,N:Optional[int]=None,display:bool=False) -> float:
-        Ks = sorted(O1TestForChaos._test_for_chaos(
+        Ks = list(O1TestForChaos._test_for_chaos(
             observables=observables,
             n_angles=n_angles,
             N=len(observables)//4 if N is None else N,
