@@ -65,8 +65,8 @@ class O1TestForChaos:
     @staticmethod
     def _test_for_chaos(observables:List[float],n_angles:int,N:int,display:bool) -> Generator[float,None,None]:
         for n in range(1,n_angles+1):
-            angle = (n/20)*pi
-            z = O1TestForChaos.transform(observables=observables, angle=angle,display=display and n==n_angles)
+            c = (n/20)*pi
+            z = O1TestForChaos.transform(observables=observables, angle=c,display=display and n==n_angles)
             M = O1TestForChaos.mean_square_displacement(transformed_data=z, N=N,display=display and n==n_angles) 
             K = O1TestForChaos.correlation_coefficient(mean_square_displacement=M, N=N, display=display and n==n_angles)
             yield K
@@ -80,7 +80,7 @@ class O1TestForChaos:
             display=display
         ))
         if display:
-            angles = list(map(lambda n:2*pi/n,  range(1,n_angles+1)))
+            angles = list(map(lambda n:(n/20)*pi, range(1,n_angles+1)))
             plot(angles,Ks)
             xlabel("angle")
             ylabel("K")
