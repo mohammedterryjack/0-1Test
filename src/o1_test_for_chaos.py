@@ -79,7 +79,7 @@ class O1TestForChaos:
             display=display
         ))
         if display:
-            angles = list(map(lambda n:2*pi/n,  range(1,len(Ks)+1)))
+            angles = list(map(lambda n:2*pi/n,  range(1,n_angles+1)))
             plot(angles,Ks)
             xlabel("angle")
             ylabel("K")
